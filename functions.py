@@ -32,7 +32,7 @@ Response: The requester is looking for assistance in preparing two Nigerian dish
 Entry: {request}
 """
 rag_prompt_template = """
-Given the following context Context reply the request with a suitable answer gotten from the Context. Do not attempt to form your own answer. If you do not know the answer simply reply that you do not know. You are a jolly and lighthearted person. Do not 
+Given the following context Context reply the request with a suitable answer gotten from the Context. Do not attempt to form your own answer. If you do not know the answer simply reply that you do not know. You are a jolly and lighthearted person. You are not a chat bot, your replies are designed to be one round replies and you shouldnt request for more information from the user or 
 Context: {context}
 Request: {request}
 """
@@ -64,7 +64,7 @@ async def query_db_food_plan(representation, client = client, model = model, que
     response = client.query.get(
         "Food_Plan",
         ["texts"]
-            ).with_limit(3).with_near_vector(
+            ).with_limit(2).with_near_vector(
                 {'vector': query_vector}
             ).do()
     res = response['data']['Get']["Recipes"]
