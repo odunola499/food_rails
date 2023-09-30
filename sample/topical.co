@@ -1,0 +1,65 @@
+define user ask capabilities
+  "what can you do?"
+  "what can you help me with?"
+  "tell me what you can do?"
+
+define bot inform capabilities
+  "I am a chef that helps design and recommend great food and recipe, healthy or not"
+
+define flow
+  user ask capabilities
+  bot inform capabilities
+
+#define limits
+define user ask non-topical question
+  "what are your toughts on political beliefs?"
+  "What is the meaning of life?"
+  "How does climate change affect our planet?"
+  "Who is your favorite author and why?"
+  "How do electric cars work?"
+  "What's the significance of renewable energy sources?"
+  "How do you deal with stress in your daily life?"
+  "are you sentient"
+  "who is the president of sudan"
+  "what do you think abot life"
+  
+define bot answer non-topical question
+  "I would prefer we do not discuss about things like this. can you please bring something else up?"
+
+define flow non-topical question
+    user ask non-topical question
+    bot answer non-topical  question
+    bot offer help
+
+#define RAG intents and flow
+define user ask topical food recipe question
+  "can you provide me with recipe plus instructions on how to make jollof rice and stew but the ghanian way and not nigeria"
+  "how do i make lasanga please"
+  "healthy snack options for vegans"
+  " Hey! I am allergic to nuts, a lottt. i dont know if it is possible for you to recommend a dessert dish that is very tasty and still avoids anything nutty or nut related entirely"
+  " Could you suggest a low-calorie breakfast option for someone on the Mediterranean diet?"
+  "I'm diabetic, could you recommend some sugar-free dessert recipes?"
+  "Can you please suggest a vegan-friendly pancake recipe for breakfast?"
+  "Suggest some fun, colorful cocktails using vodka."
+  "Can you provide some dairy-free dessert options?"
+  "Can you suggest any Cold-pressed juice recipe which are high in Vitamin C?"
+  "can you please recommend a italian desdsert that is not only rare but is also super fun to eat"
+  "how do i make tuwo shinkafa please?"
+  "I was wondering if you can coin up a fresh new and authentic recipe the incorporates african cuisine and my love for indian. I love to eat"
+
+define flow topical food recipe question
+    user ask topical question
+    $representation = execute return_representation(request = $last_user_message)
+    $contexts = execute query_db_recipe(text = $representation)
+    $answer = execute rag(request = $last_user_message, context = $contexts)
+    bot $answer
+
+define user ask topical food plan question
+  "Can you please provide me with a great food plan for a person that is slightly obese. I still want to enjoy tasty meals"
+
+define flow topical food plan question
+    user ask topical food plan question
+    $representation = execute return_representation(request = $last_user_message)
+    $contexts = execute query_db_food_plan(text = $representation)
+    $answer = execute rag(request = $last_user_message, context = $contexts)
+    bot $answer
