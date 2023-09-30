@@ -25,6 +25,7 @@ define user ask non-topical question
   
 define bot answer non-topical question
   "I would prefer we do not discuss about things like this. can you please bring something else up?"
+  "I am sorry but i do not feel comfortable replying to texts like this. let us talk about something else"
 
 define flow non-topical question
     user ask non-topical question
@@ -32,6 +33,7 @@ define flow non-topical question
     bot offer help
 
 #define RAG intents and flow
+
 define user ask topical food recipe question
   "can you provide me with recipe plus instructions on how to make jollof rice and stew but the ghanian way and not nigeria"
   "how do i make lasanga please"
@@ -45,7 +47,7 @@ define user ask topical food recipe question
   "Can you suggest any Cold-pressed juice recipe which are high in Vitamin C?"
   "can you please recommend a italian desdsert that is not only rare but is also super fun to eat"
   "how do i make tuwo shinkafa please?"
-  "I was wondering if you can coin up a fresh new and authentic recipe the incorporates african cuisine and my love for indian. I love to eat"
+  "I was wondering if you can coin up a fresh new and authentic recipe that incorporates african cuisine and my love for indian. I love to eat"
 
 define flow topical food recipe question
     user ask topical question
@@ -56,6 +58,26 @@ define flow topical food recipe question
 
 define user ask topical food plan question
   "Can you please provide me with a great food plan for a person that is slightly obese. I still want to enjoy tasty meals"
+  "can you please tell me a fun story on why vikings like meat?"
+  "I'm looking for a meal plan that's suitable for someone with celiac disease. Can you help me enjoy gluten-free meals?"
+  "I have a nut allergy. Can you provide me with a safe meal plan that excludes all types of nuts while still being delicious?"
+  "I'm trying to manage my high blood pressure through diet. Can you create a meal plan that's low in sodium but full of flavor?"
+  "I need a meal plan that supports my weight loss goals. Can you help me shed pounds while enjoying tasty, calorie-conscious dishes?"
+  "I'm a vegetarian and looking for a diverse meal plan with plenty of protein sources. Can you make it both nutritious and flavorful?"
+  "I'm training for a marathon and need a high-energy meal plan. Can you create one that fuels my workouts with delicious, carb-rich foods?"
+  "I have a seafood allergy. Can you provide a meal plan that avoids all forms of seafood while still being appetizing?"
+  "I'm pregnant and need a nutritionally balanced meal plan. Can you ensure it's safe and enjoyable for expectant mothers?"
+  "I'm following a ketogenic diet for epilepsy management. Can you design a meal plan that's keto-friendly and delicious?"
+  "I'm allergic to dairy products. Can you create a meal plan that's completely dairy-free but still satisfying?"
+  "I'm looking for a heart-healthy meal plan to lower my cholesterol levels. Can you make sure it's heart-protective and tasty?"
+  "I have Crohn's disease and need a diet that's gentle on my digestive system. Can you provide a plan that's easy on my gut and flavorful?"
+  "I'm a bodybuilder seeking a high-protein, low-fat meal plan. Can you design one that supports muscle growth and tastes great?"
+  "I'm recovering from surgery and need soft, easy-to-digest foods. Can you create a meal plan that's gentle on my stomach but still delicious?"
+  "I'm on a strict paleo diet. Can you provide a meal plan that adheres to paleo guidelines while being mouthwatering?"
+  "I have multiple food allergies. Can you create a customized meal plan that avoids my allergens but is still enjoyable?"
+  "I'm a vegan athlete and require a meal plan that meets my protein needs. Can you make it plant-based and flavorful?"
+  "I have irritable bowel syndrome (IBS) and need a low-FODMAP diet. Can you create a meal plan that's IBS-friendly and appetizing?"
+  "I'm looking for a Mediterranean-style meal plan for its health benefits. Can you make it Mediterranean-inspired and delectable?"
 
 define flow topical food plan question
     user ask topical food plan question
