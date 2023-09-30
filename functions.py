@@ -1,19 +1,21 @@
 import openai
 import weaviate
 from sentence_transformers import SentenceTransformer
+import os
 
 
-
-
+weaviate_key = os.getenv('WEAVIATE_API_KEY')
+open_ai_key = os.getenv('OPENAI_API_KEY')
+huggingface_key = os.getenv('HUGGINGFACE_API_KEY')
 
 model = SentenceTransformer('BAAI/bge-base-en-v1.5')
-auth_config = weaviate.AuthApiKey(api_key="9p60BYpfrDrpE6cuZ7vfznKOeAOrg5vZxeHL")
+auth_config = weaviate.AuthApiKey(api_key=weaviate_key)
 
 client = weaviate.Client(
       url="https://sandbox-1o96gbvl.weaviate.network",
       auth_client_secret=auth_config,
       additional_headers={
-          "X-HuggingFace-Api-Key": "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"
+          "X-HuggingFace-Api-Key": huggingface_key
       }
   )
  
