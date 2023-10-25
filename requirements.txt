@@ -1,0 +1,6 @@
+nemoguardrails
+openai
+sentence-transformers
+scipy
+weaviate
+streamlit
